@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비디오 스트리밍</title>
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+      
+      html,
+      body {
+        font-family: 'Nanum Gothic', sans-serif;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .whole_wrapper {
+        display: flex;
+        height: 150vh;
+        background-color: #ecf0f4;
+      }
+      .right_article {
+        display: flex;
+        width: 80vw;
+        flex-direction: column;
+      }
+      .contents {
+        margin: 20px 20px 20px 20px;
+        border-radius: 6px;
+        box-shadow: 0 0 28px rgba(0,0,0,.08);
+        background-color: #ffffff;
+        font-size: 15pt;
+      }
+      .left_side {
+        display: flex;
+        width: 250px;
+        height: 150vh;
+        background: #0b132b;
+        top: 0px;
+        left: 0px;
+      }
+      #dropmenu {
+        padding: 0;
+        margin: 0;
+        color: white;
+        list-style: none;
+      }
+      #menu_margin {
+        padding: 0;
+        margin: 0;
+        display: block;
+        width: 250px;
+        height: 100px;
+      }
+      .left_side_menu {
+        margin: 0;
+        padding: 10px;
+        display: block;
+        height: 50px;
+        text-align: center;
+        font-size: 24pt;
+        border-bottom: 1px solid black;
+        border-top: 1px solid #3c3c3c;
+        color: #ffffff;
+      }
+      #main_wrapper {
+        margin-top: 40px;
+        padding: 20px 20px 20px 20px;
+        box-sizing: border-box;
+      }
+      .main_content {
+        /*max-height: 750px;*/
+      }
+      #myVideo {
+        width: 100%;
+        padding: 0px;
+      }
+      #side_contents {
+        display: flex;
+        max-height: 300px;
+        flex-grow: 1;
+        justify-content: space-between;
+        border-radius: 0px;
+        box-shadow: 0 0 0px rgba(0,0,0,.08);
+        background-color: transparent;
+      }
+      #information {
+        margin: 0px;
+        max-width: 30%;
+        flex: 0 0 30%
+      }
+      #cam_list {
+        margin: 0px;
+        max-width: 30%;
+        flex: 0 0 30%
+      }
+      #sensor {
+        margin: 0px;
+        max-width: 30%;
+        flex: 0 0 30%
+      }
+      .side_menu_title {
+        padding: 3px;
+        text-align: center;
+        color: #000000;
+      }
+      .side_menu_contents {
+        padding-left: 20px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+    </script>
+    <div class="whole_wrapper">
+      <div class="left_side">
+        <ul id="dropmenu">
+          <span id=menu_margin></span>
+          <span class=left_side_menu> Video 1</span>
+          <span class=left_side_menu> Video 2</span>
+          <span class=left_side_menu> Video 3</span>
+        </ul>
+      </div>
+      <div class="right_article">
+        <div class="contents" id="main_wrapper">
+          <article class="main_content">
+            <!---img src="sample_1280x720.mjpeg"-->
+            <!---실제 테스트시 video 태그가 아닌 이 코드를 실행해야 함.-->
+            <video oncontextmenu="return false;" id="myVideo" controls autoplay>
+              <source src="sample_1280x720.mjpeg"/>
+              <source src="test.mp4" type="video/mp4" />
+              <source src="test.webm" type="video/webm" />
+            </video>
+          </article>
+        </div>
+        <class class="contents" id="side_contents">
+          <aside class="contents" id="information">
+            <p class="side_menu_title">Information</p>
+            <p class="side_menu_contents">IP    :<br>     <%= ip %></p>
+            <p class="side_menu_contents">PORT  :<br>     <%= port %></p>
+          </aside>
+          <aside class="contents" id="cam_list">
+            <p class="side_menu_title">Cam List</p>
+          </aside>
+          <aside class="contents" id="sensor">
+            <p class="side_menu_title">Sensor</p>
+            <p class="side_menu_contents">Latitude  :<br>     <%= y %></p>
+            <p class="side_menu_contents">Longitude :<br>     <%= x %></p>
+          </aside>
+          </class>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
